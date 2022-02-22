@@ -1,12 +1,16 @@
 package com.blz.printarray;
 
-public class PrintArray<T> {
-    private T[] myArray;
+public class PrintArray<X, Y, Z> {
+    private X[] myXArray;
+    private Y[] myYArray;
+    private Z[] myZArray;
 
 //constructor
-    public PrintArray(T[] myArray) {
+    public PrintArray(X[] myXArray, Y[] myYArray, Z[] myZArray) {
 	super();
-	this.myArray = myArray;
+	this.myXArray = myXArray;
+	this.myYArray = myYArray;
+	this.myZArray = myZArray;
     }
 
     // generic array printing
@@ -19,7 +23,9 @@ public class PrintArray<T> {
     // generic array printing using class
 
     private void printArray() {
-	printArray(myArray);
+	printArray(myXArray);
+	printArray(myYArray);
+	printArray(myZArray);
     }
 
     public static void main(String[] args) {
@@ -30,10 +36,8 @@ public class PrintArray<T> {
 	printArray(arr1);
 	printArray(arr2);
 	printArray(arr3);
-	/// using class objects
-	new PrintArray<Integer>(arr1).printArray();
-	new PrintArray<Double>(arr2).printArray();
-	new PrintArray<Character>(arr3).printArray();
+	/// passing all types at same time
+	new PrintArray<Integer, Double, Character>(arr1, arr2, arr3).printArray();
 
     }
 
